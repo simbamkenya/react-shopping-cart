@@ -11,6 +11,7 @@ function Header() {
                     <li>Contacts</li>
                     <li>Cart</li>
                 </ul>
+                <i className="fas fa-shopping-cart"></i>
                 
             </nav>
         </div>
