@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import '../App.css';
-import { useSelector, useDispatch } from "react-redux";
-import { addItems, clearItems, removeItems } from '../store/Actions/actions'
+import {  useSelector, useDispatch } from "react-redux";
+import { addItems, removeItems, clearItems } from '../store/Actions/actions'
 import React, { useEffect } from 'react'
 import store from '../store/index'
 
@@ -47,12 +47,11 @@ margin: 0 auto;
 
 
 const data = {
-  cartItems: [
+  bookList: [
     { bookId: 1, bookName : "Master Of The Game", price: 35, category: "thrill", url: 'master_of_the_game.jpg'},
     { bookId: 2, bookName : "Tell Me Your Dreams", price: 45, category: "detective", url: 'tell_me_your_dreams.jpg'},
     { bookId: 3, bookName : "If Tomorrow Comes", price: 30, category: "thrill", url: 'if_tomorrow_comes.jpg'}
   ],
-  totalPrice: 0,
 }
 
 function Shop() {
@@ -62,22 +61,26 @@ function Shop() {
   // })
   // console.log(data)
 
-  const dat = useSelector(state => state.cartItems)
-  console.log(dat)
+  const datai = useSelector(state => state.Test)
+  console.log(datai)
   const dispatch = useDispatch()
-  {store.subscribe(() => console.log("state changed"))}
- 
+  // {store.getState()}
+  // {store.subscribe(() => {
+  //   console.log('store changed!', store.getState())
+  // })}
   return (
      <Container>
         <ContentBox>
-        {data.cartItems.map(item => (
+        {data.bookList.map(item => (
           <ItemBox key={item.bookId}> 
               <img src={process.env.PUBLIC_URL + `/${item.url}`} />
               <p>Item: {item.bookName}</p>
               <p>Price: $ {item.price}</p>
-              <Button onClick={() => dispatch(addItems(item.bookId))}>Add To Cart</Button>
+              <Button onClick={() => dispatch(addItems(item))}>Add To Cart</Button>
+              
           </ItemBox>
         ))}
+        {/* <Button onClick={() => dispatch(clearCart())}>Clear</Button> */}
         </ContentBox>
      </Container>
 

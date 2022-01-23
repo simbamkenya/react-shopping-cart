@@ -1,15 +1,17 @@
 import {ADD_ITEM, REMOVE_ITEM, CLEAR_CART } from './actionTypes'
 
-export const addItems = () => (dispatch) => {
+export const addItems = (item) => {
     return (dispatch) => {
+        // console.log(item)
         dispatch({
             type: ADD_ITEM,
-            payload: 4
+            payload: item
         })
+       
     }
 }
 
-export const removeItems = () => (dispatch) => {
+export const removeItems = () => {
     return (dispatch) => {
         dispatch({
             type: REMOVE_ITEM
@@ -17,7 +19,7 @@ export const removeItems = () => (dispatch) => {
     }
 }
 
-export const clearCart = () => (dispatch) => {
+export const clearCart = () => {
     return (dispatch) => {
         dispatch({
             type: CLEAR_CART
