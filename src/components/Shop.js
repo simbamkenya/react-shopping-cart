@@ -1,49 +1,49 @@
 import styled from 'styled-components';
 import '../App.css';
 import {  useSelector, useDispatch } from "react-redux";
-import { addItems, removeItems, clearItems } from '../store/Actions/actions'
+import { addItem, removeItem, clearItems } from '../store/Actions/actions'
 import React, { useEffect } from 'react'
 import store from '../store/index'
 
-const ContentBox = styled.div`
-display:flex;
-justify-content: space-between;
-align-items: center;
-`
-const ItemBox = styled.div`
-border: 1px solid pink;
- padding: .5em;
- border-radius: .5em;
+// const ContentBox = styled.div`
+// display:flex;
+// justify-content: space-between;
+// align-items: center;
+// `
+// const ItemBox = styled.div`
+// border: 1px solid pink;
+//  padding: .5em;
+//  border-radius: .5em;
 
-`
-const Button = styled.button`
- cursor: pointer;
- border: none;
- font-family: inherit;
- padding: 0;
- background-color: transparent;
- display: inline-flex;
-align-items: center;
-justify-content: center;
-background-color: #3e68ff;
-color: #fff;
-border-radius: 8px;
-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-padding: 0.25em 0.75em;
-min-width: 10ch;
-min-height: 44px;
-text-align: center;
-line-height: 1.1;
+// `
+// const Button = styled.button`
+//  cursor: pointer;
+//  border: none;
+//  font-family: inherit;
+//  padding: 0;
+//  background-color: transparent;
+//  display: inline-flex;
+// align-items: center;
+// justify-content: center;
+// background-color: #3e68ff;
+// color: #fff;
+// border-radius: 8px;
+// box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+// padding: 0.25em 0.75em;
+// min-width: 10ch;
+// min-height: 44px;
+// text-align: center;
+// line-height: 1.1;
 
-&:hover{
-  transform: scale(1.02)
-}
-`
-const Container = styled.div`
-width: 80%;
-max-width: 960px;
-margin: 0 auto;
-`
+// &:hover{
+//   transform: scale(1.02)
+// }
+// `
+// const Container = styled.div`
+// width: 80%;
+// max-width: 960px;
+// margin: 0 auto;
+// `
 
 
 const data = {
@@ -69,20 +69,20 @@ function Shop() {
   //   console.log('store changed!', store.getState())
   // })}
   return (
-     <Container>
-        <ContentBox>
+     <div>
+        <div>
         {data.bookList.map(item => (
-          <ItemBox key={item.bookId}> 
+          <div key={item.bookId}> 
               <img src={process.env.PUBLIC_URL + `/${item.url}`} />
               <p>Item: {item.bookName}</p>
               <p>Price: $ {item.price}</p>
-              <Button onClick={() => dispatch(addItems(item))}>Add To Cart</Button>
+              <button onClick={() => dispatch(addItem(item))}>Add To Cart</button>
               
-          </ItemBox>
+          </div>
         ))}
-        {/* <Button onClick={() => dispatch(clearCart())}>Clear</Button> */}
-        </ContentBox>
-     </Container>
+        {/* <button onClick={() => dispatch(clearCart())}>Clear</button> */}
+        </div>
+     </div>
 
   );
 }

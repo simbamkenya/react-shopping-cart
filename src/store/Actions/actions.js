@@ -1,6 +1,6 @@
-import {ADD_ITEM, REMOVE_ITEM, CLEAR_CART } from './actionTypes'
+import {ADD_ITEM, REMOVE_ITEM, CLEAR_CART, REDUCE_COUNT, ADD_COUNT } from './actionTypes'
 
-export const addItems = (item) => {
+export const addItem = (item) => {
     return (dispatch) => {
         // console.log(item)
         dispatch({
@@ -11,10 +11,29 @@ export const addItems = (item) => {
     }
 }
 
-export const removeItems = () => {
+export const removeItem = (id) => {
     return (dispatch) => {
         dispatch({
-            type: REMOVE_ITEM
+            type: REMOVE_ITEM,
+            payload: id
+        })
+    }
+}
+
+export const addCount = (item) => {
+    return (dispatch) => {
+        dispatch({
+            type: ADD_COUNT,
+            payload: item
+        })
+    }
+}
+
+export const reduceCount = (item) => {
+    return (dispatch) => {
+        dispatch({
+            type: REDUCE_COUNT,
+            payload: item
         })
     }
 }
